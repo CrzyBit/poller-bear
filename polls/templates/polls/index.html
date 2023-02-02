@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>question index</title>
+  <link type="text/css" rel="stylesheet" href="{% static 'polls/css/styles.css' %}"/>
+</head>
+<body>
+
+<div class="container question-container">
+{% if latest_question_list %}
+  <h1 class="container-title">Questions</h1>
+  <ul class="question-list">
+    {% for question in latest_question_list %}
+    <li class="question-item">
+      <a class="question-text" href="{% url 'polls:detail' question.id %}">
+        {{question.question_text}}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% else %}
+<div class="conatiner error-container">
+  <h1 class="error-message">No polls available!</h1>
+</div>
+{% endif %}
+</div>
+</body>
+</html>

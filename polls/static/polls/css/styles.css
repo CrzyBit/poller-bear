@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.question-container {
+  margin: auto;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.container-title {
+  text-align: center;
+  font-family: "Poppins";
+  padding: 10px;
+}
+
+/****** INDEX PAGE ******/
+.question-list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+.question-item {
+  font-weight: bold;
+  margin: 4px 0 4px 0;
+  border-radius: 4px;
+  background-color: #efefef;
+  margin: 4px;
+  padding: 2px;
+  font-family: "Poppins";
+  font-family: monospace;
+}
+.question-text {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  color: rgb(36, 40, 61);
+}
+
+/****** DETAIL CONTAINER ******/
+.detail-top-header {
+  background-color: rgb(255, 97, 50);
+  font-family: monospace;
+  padding: 10px;
+  color: rgb(228, 227, 222);
+  text-align: center;
+}
+.question-detail-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #efefef;
+  margin: 5px auto;
+  padding: 5px;
+}
+.question-detail-title {
+  font-family: "Poppins";
+  margin: 10px auto;
+}
+.choice-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+.choice {
+  display: flex;
+  margin: 4px;
+}
+.choice-input {
+  margin: auto 5px auto 0px;
+  outline: none;
+}
+.choice-text {
+  background-color: rgb(45, 60, 82);
+  border-radius: 10px;
+  border: 2px solid #234;
+  padding: 8px;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  font-family: "Poppins";
+  color: rgb(221, 227, 228);
+}
+.vote-btn {
+  padding: 8px 10px;
+  margin: 5px;
+  align-self: flex-start;
+  background-color: rgb(127, 199, 151);
+  color: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  border-style: none;
+}

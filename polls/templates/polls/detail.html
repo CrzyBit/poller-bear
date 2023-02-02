@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>question: {%if question %} {{question.id}} {% endif %}</title>
+   <link type="text/css" rel="stylesheet" href="{% static 'polls/css/styles.css' %}"/>
+</head>
+<body>
+  <div class="conatiner">
+  {% if question %}
+      <h4 class="detail-top-header">
+        Your'e viewing question: {{question.id}}
+      </h4>
+      <form method="post" action="{% url 'polls:vote' question.id %}" class="question-detail-container">
+        {% csrf_token %}
+        <h2 class="question-detail-title">
+          {{question.question_text}}
+        </h2>
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <ul class="choice-list">
+        {% for choice in question.choice_set.all %}
+        <li class="choice">
+         <!-- <input class="choice-input" type="radio" name="choice" id="choice{{ forloop.counter }}">-->
+          <label for="choice{{ forloop.counter }}" class="choice-text">
+          <input class="choice-input" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{choice.id}}">
+            {{choice.choice_text}}
+          </label>
+        </li>
+        {% endfor %}
+        </ul>
+        <button class="vote-btn" value="vote" type="submit">vote</button>
+      </form>
+  {% else %}
+  <h1 class="error">404 not found</h1>
+  {% endif %}
+  </div>
+</body>
+</html>
